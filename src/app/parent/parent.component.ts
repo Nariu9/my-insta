@@ -12,6 +12,7 @@ interface LessonStorage {
   styleUrls: ['./parent.component.scss'],
 })
 export class ParentComponent {
+  isLoading = true
   lessons: LessonStorage[] = [
     {
       id: 0,
@@ -32,6 +33,12 @@ export class ParentComponent {
       ],
     },
   ]
+
+  constructor() {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 3000)
+  }
 
   getGrades(value: string) {
     //this.grade.push(value)

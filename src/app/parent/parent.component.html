@@ -1,18 +1,19 @@
-<div>
-  <inst-child (sendGradeEvent)="getGrades($event)"></inst-child>
-  <!--<div *ngFor="let el of grade; index as i; count as count; even as even">
-    {{ i }} - {{ el }} count{{ count }} - even {{ even }}
-  </div>-->
+<div *ngIf="isLoading; else content">
+  <h2>Loading ...</h2>
+</div>
 
-  <div *ngFor="let lesson of lessons">
-    <div>
-      <h3>{{ lesson.title }}</h3>
+<ng-template #content>
+  <div>
+    <div *ngFor="let lesson of lessons">
       <div>
-        <h3>
-          week grades:
-          <div *ngFor="let grade of lesson.weekGrades">{{ grade.gradeItem }}</div>
-        </h3>
+        <h3>{{ lesson.title }}</h3>
+        <div>
+          <h3>
+            week grades:
+            <div *ngFor="let grade of lesson.weekGrades">{{ grade.gradeItem }}</div>
+          </h3>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-template>
