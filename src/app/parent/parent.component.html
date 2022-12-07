@@ -1,5 +1,9 @@
-<!--<h1 class="default success">Lorem ipsum dolor sit amet.</h1>-->
-<!--<h1 [ngClass]="'default success'">Lorem ipsum dolor sit amet.</h1>-->
-<!--<h1 [ngClass]="{ default: true, success: isOk, error: !isOk }">Lorem ipsum dolor sit amet.</h1>-->
-<!--<h1 [ngClass]="{ 'default success': isOk }">Lorem ipsum dolor sit amet.</h1>-->
-<h1 [ngStyle]="styles">Lorem ipsum dolor sit amet.</h1>
+<div *ngFor="let fruit of fruits; even as even; odd as odd">
+  <p
+    class="default"
+    *ngIf="fruit.price > 7"
+    [ngClass]="{ success: even, error: odd, expensive: fruit.price > 15 }"
+  >
+    fruit name: {{ fruit.name }}, price: {{ fruit.price }}
+  </p>
+</div>
