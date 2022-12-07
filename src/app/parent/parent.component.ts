@@ -8,6 +8,8 @@ import { Component } from '@angular/core'
 export class ParentComponent {
   isOk = false
 
+  styles = { color: 'blue', margin: '20px', opacity: '0.5' }
+
   constructor() {
     setTimeout(() => {
       this.isOk = true
