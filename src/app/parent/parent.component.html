@@ -1,5 +1,6 @@
 <div>
   <inst-child (sendGradeEvent)="getGrades($event)"></inst-child>
-  <div>{{ grade | json }}</div>
-  <!--<h2>math: {{ math }} physics: {{ physics }}</h2>-->
+  <div *ngFor="let el of grade; index as i; count as count; even as even">
+    {{ i }} - {{ el }} count{{ count }} - even {{ even }}
+  </div>
 </div>
