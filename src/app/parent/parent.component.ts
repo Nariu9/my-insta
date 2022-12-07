@@ -6,5 +6,11 @@ import { Component } from '@angular/core'
   styleUrls: ['./parent.component.scss'],
 })
 export class ParentComponent {
-  value = ''
+  isOk = false
+
+  constructor() {
+    setTimeout(() => {
+      this.isOk = true
+    }, 3000)
+  }
 }

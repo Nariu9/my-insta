@@ -1,7 +1,4 @@
-<input type="text" [(ngModel)]="value" />
-<div [ngSwitch]="value">
-  <div *ngSwitchCase="'1'">One</div>
-  <div *ngSwitchCase="'2'">Two</div>
-  <div *ngSwitchCase="'3'">Three</div>
-  <div *ngSwitchDefault class="error">Unknown number</div>
-</div>
+<!--<h1 class="default success">Lorem ipsum dolor sit amet.</h1>-->
+<!--<h1 [ngClass]="'default success'">Lorem ipsum dolor sit amet.</h1>-->
+<!--<h1 [ngClass]="{ default: true, success: isOk, error: !isOk }">Lorem ipsum dolor sit amet.</h1>-->
+<h1 [ngClass]="{ 'default success': isOk }">Lorem ipsum dolor sit amet.</h1>
