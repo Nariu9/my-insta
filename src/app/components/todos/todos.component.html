@@ -1,0 +1,6 @@
+<div *ngFor="let todo of todos">
+  <p class="container">
+    {{ todo.id }} -- {{ todo.addedDate | date : 'MMM d, y, h:mm:ss a' }} -- {{ todo.title }} --
+    {{ todo.order }}
+  </p>
+</div>
