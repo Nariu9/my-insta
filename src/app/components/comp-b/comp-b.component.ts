@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ValueService } from '../../services/value.service'
 import { Observable } from 'rxjs'
+import { BeautyLoggerService } from '../../services/beauty-logger.service'
 
 @Component({
   selector: 'inst-comp-b',
@@ -10,18 +11,20 @@ import { Observable } from 'rxjs'
 export class CompBComponent implements OnInit {
   value$ = new Observable()
 
-  constructor(private valueService: ValueService) {}
+  constructor(
+    private valueService: ValueService,
+    private beautyLoggerService: BeautyLoggerService
+  ) {}
 
   ngOnInit(): void {
-    // subscription
-    /*this.valueService.value$.subscribe(value => {
-      this.value = value
-    })*/
-
     this.value$ = this.valueService.value$
   }
 
   decValueHandler() {
     this.valueService.decValue()
+    this.beautyLoggerService.log(
+      `value was decremented, current value = ${this.valueService.value$.value}`,
+      'info'
+    )
   }
 }
