@@ -2,7 +2,7 @@
   <p class="container">
     {{ todo.id }} -- {{ todo.addedDate | date : 'MMM d, y, h:mm:ss a' }} -- {{ todo.title }} --
     {{ todo.order }}
+    <button (click)="deleteTodo(todo.id)">-</button>
   </p>
 </div>
 <button (click)="createTodo()">+</button>
-<button (click)="deleteTodo()">-</button>
