@@ -1,7 +1,7 @@
 <h1 *ngIf="!!error; else content">{{ error }}</h1>
 
 <ng-template #content>
-  <div *ngFor="let todo of todos">
+  <div *ngFor="let todo of todos$ | async">
     <p class="container">
       {{ todo.id }} -- {{ todo.addedDate | date : 'MMM d, y, h:mm:ss a' }} -- {{ todo.title }} --
       {{ todo.order }}
