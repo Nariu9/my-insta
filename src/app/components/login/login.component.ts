@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { FormControl } from '@angular/forms'
+import { FormControl, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'inst-login',
@@ -7,5 +7,12 @@ import { FormControl } from '@angular/forms'
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  email = new FormControl('initial email')
+  loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  })
+
+  onSubmit() {
+    alert(JSON.stringify(this.loginForm.value))
+  }
 }
