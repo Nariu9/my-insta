@@ -1,10 +1,19 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="email" required />
+  <!--<input
+    type="text"
+    formControlName="email"
+    required
+    [ngClass]="{
+      invalidInput: email!.invalid && (email!.dirty || email!.touched),
+      validInput: email!.valid
+    }"
+  />-->
+  <div><input type="text" formControlName="email" required /></div>
   <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
     <div *ngIf="email!.errors?.['required']">Email is required</div>
     <div *ngIf="email!.errors?.['pattern']">Email is not correct</div>
   </div>
-  <input type="password" formControlName="password" />
+  <div><input type="password" formControlName="password" required /></div>
   <button [disabled]="loginForm.invalid">Submit</button>
 </form>
 
