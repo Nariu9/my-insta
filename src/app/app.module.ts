@@ -10,6 +10,11 @@ import { CompBComponent } from './components/comp-b/comp-b.component'
 import { TodosComponent } from './components/todos/todos.component'
 import { HttpClientModule } from '@angular/common/http'
 import { LoginComponent } from './components/login/login.component'
+import { HomeComponent } from './components/home/home.component'
+import { UsersComponent } from './components/users/users.component'
+import { ProfileComponent } from './components/profile/profile.component'
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
+import { RouterModule } from '@angular/router'
 
 @NgModule({
   declarations: [
@@ -20,8 +25,27 @@ import { LoginComponent } from './components/login/login.component'
     CompBComponent,
     TodosComponent,
     LoginComponent,
+    HomeComponent,
+    UsersComponent,
+    ProfileComponent,
+    PageNotFoundComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '', component: HomeComponent },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      { path: 'todos', component: TodosComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'profile', component: ProfileComponent },
+    ]),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
