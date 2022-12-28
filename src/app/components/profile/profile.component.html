@@ -1,1 +1,4 @@
 <p>profile works!</p>
+<div *ngIf="profile$ | async as profile">
+  {{ profile.fullName }}
+</div>
