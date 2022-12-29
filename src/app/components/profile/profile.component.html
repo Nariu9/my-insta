@@ -1,4 +1,7 @@
 <p>profile works!</p>
-<div *ngIf="profile$ | async as profile">
+<div *ngIf="profile$ | async; let profile">
   {{ profile.fullName }}
 </div>
+<button (click)="backToUsersHandler()">Go back with router</button>
+<button [routerLink]="['/users']">Go back with routerLink</button>
+<div [routerLink]="['/users']">Go back with div and routerLink</div>
