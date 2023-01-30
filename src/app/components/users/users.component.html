@@ -2,4 +2,5 @@
 <div *ngFor="let user of users$ | async">
   {{ user.id }} - <a [routerLink]="['/profile', user.id]">{{ user.name }}</a>
 </div>
+<button [routerLink]="['/users']" [queryParams]="{ page: 1 }">Back to start</button>
 <button (click)="showNextUsers()">Next</button>
