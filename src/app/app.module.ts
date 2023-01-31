@@ -7,13 +7,14 @@ import { ChildComponent } from './parent/child/child.component'
 import { CompAComponent } from './components/comp-a/comp-a.component'
 import { CompBComponent } from './components/comp-b/comp-b.component'
 import { TodosComponent } from './components/todos/todos.component'
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { LoginComponent } from './components/login/login.component'
 import { HomeComponent } from './components/home/home.component'
 import { UsersComponent } from './components/users/users.component'
 import { ProfileComponent } from './components/profile/profile.component'
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component'
 import { AppRoutingRoutingModule } from './app-routing-routing.module'
+import { CredentialsInterceptor } from './interceptors/credentials.interceptor'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { AppRoutingRoutingModule } from './app-routing-routing.module'
     ReactiveFormsModule,
     AppRoutingRoutingModule,
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: CredentialsInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

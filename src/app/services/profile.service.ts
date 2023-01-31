@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment'
 import { Observable } from 'rxjs'
 
@@ -31,17 +31,9 @@ interface Contacts {
   providedIn: 'root',
 })
 export class ProfileService {
-  httpOptions = {
-    headers: new HttpHeaders().append('api-key', environment['apiKey']),
-    withCredentials: true,
-  }
-
   constructor(private http: HttpClient) {}
 
   getProfile(userId: number): Observable<ProfileResponse> {
-    return this.http.get<ProfileResponse>(
-      `${environment.baseNetworkURL}/profile/${userId}`,
-      this.httpOptions
-    )
+    return this.http.get<ProfileResponse>(`${environment.baseNetworkURL}/profile/${userId}`)
   }
 }

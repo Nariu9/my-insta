@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../environments/environment'
 import { map, Observable } from 'rxjs'
 
@@ -21,16 +21,11 @@ export interface User {
   providedIn: 'root',
 })
 export class UsersService {
-  httpOptions = {
-    headers: new HttpHeaders().append('api-key', environment['apiKey']),
-    withCredentials: true,
-  }
-
   constructor(private http: HttpClient) {}
 
   getUsers(page: number): Observable<User[]> {
     return this.http
-      .get<UserResponse>(`${environment.baseNetworkURL}/users?page=${page}`, this.httpOptions)
+      .get<UserResponse>(`${environment.baseNetworkURL}/users?page=${page}`)
       .pipe(map(el => el.items))
   }
 }
