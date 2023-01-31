@@ -41,6 +41,8 @@ export class UsersComponent implements OnInit {
     // this.router.navigateByUrl(`/users?page=${nextPage}`).then(() => this.getUsers(nextPage))
 
     // 2 variant
-    this.router.navigate(['/users'], { queryParams: { page: nextPage } })
+    this.router
+      .navigate(['/users'], { queryParams: { page: nextPage } })
+      .then(() => this.getUsers(nextPage))
   }
 }
